@@ -4,6 +4,7 @@ import one.typex.magicbox.dto.CategoriesDto;
 import one.typex.magicbox.dto.CreateRequestDto;
 import one.typex.magicbox.dto.CreateRequestResponse;
 import one.typex.magicbox.dto.RequestDto;
+import one.typex.magicbox.entities.Category;
 import one.typex.magicbox.services.CategoryService;
 import one.typex.magicbox.services.RequestService;
 import org.springframework.http.HttpStatus;
@@ -43,5 +44,11 @@ public class ApiController {
     public HttpStatus createRequest(@RequestBody CreateRequestDto newRequest) {
         requestService.createRequest(newRequest);
         return HttpStatus.CREATED;
+    }
+
+    @PostMapping("categories/add")
+    public HttpStatus addCategories(@RequestBody List<CategoriesDto> categoriesDto) {
+        categoryService.addCategories(categoriesDto);
+        return HttpStatus.ACCEPTED;
     }
 }
