@@ -2,7 +2,6 @@ package one.typex.magicbox.services;
 
 import one.typex.magicbox.dto.CoordinateDto;
 import one.typex.magicbox.dto.CreateRequestDto;
-import one.typex.magicbox.dto.CreateRequestResponse;
 import one.typex.magicbox.dto.RequestDto;
 import one.typex.magicbox.entities.Category;
 import one.typex.magicbox.entities.Request;
@@ -10,6 +9,8 @@ import one.typex.magicbox.repositories.CategoryRepo;
 import one.typex.magicbox.repositories.RequestRepo;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -54,6 +55,7 @@ public class RequestService {
             request.setCategoryId(category.getId());
             request.setSummary(newRequest.getSummary());
             request.setContent(newRequest.getText());
+            request.setCreatedAt(new Timestamp(new Date().getTime()));
             var coordinates = newRequest.getCoordinate();
             request.setLon(coordinates.getLon());
             request.setLat(coordinates.getLat());
