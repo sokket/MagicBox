@@ -30,7 +30,7 @@ public class RequestService {
         return requestRepo.findByCategoryId(categoryId)
                 .stream().map(it ->
                         new RequestDto(
-                                it.getCategoryId(),
+                                it.getId(),
                                 it.getSummary(),
                                 it.getCreatedAt(),
                                 new CoordinateDto(it.getLon(), it.getLat())
