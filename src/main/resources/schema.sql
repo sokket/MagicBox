@@ -1,11 +1,11 @@
-CREATE TABLE categories
+CREATE TABLE IF NOT EXISTS categories
 (
     id    bigserial primary key not null unique,
     name  text,
     color bytea
 );
 
-CREATE TABLE requests
+CREATE TABLE IF NOT EXISTS requests
 (
     id          bigserial,
     category_id bigint REFERENCES categories (id),

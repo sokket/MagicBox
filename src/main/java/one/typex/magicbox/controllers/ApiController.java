@@ -6,12 +6,11 @@ import one.typex.magicbox.dto.CreateRequestResponse;
 import one.typex.magicbox.dto.RequestDto;
 import one.typex.magicbox.services.CategoryService;
 import one.typex.magicbox.services.RequestService;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
 @RequestMapping("/api/v1/")
 public class ApiController {
 
@@ -28,10 +27,6 @@ public class ApiController {
         return categoryService.getAll();
     }
 
-    @PostMapping("createRequest")
-    public CreateRequestResponse createRequest(@RequestBody CreateRequestDto newRequest) {
-        return requestService.createRequest(newRequest);
-    }
 
     @GetMapping("points")
     public List<RequestDto> getPointsByCategory(@RequestParam("category") long category) {
@@ -41,5 +36,10 @@ public class ApiController {
     @GetMapping("requestsText/{id}")
     public String getRequestText(@PathVariable("id") long id) {
         return requestService.getTextById(id);
+    }
+
+    @PostMapping("createRequest")
+    public CreateRequestResponse createRequest(@RequestBody CreateRequestDto newRequest) {
+        return requestService.createRequest(newRequest);
     }
 }
