@@ -44,7 +44,8 @@ public class RequestService {
         return "";
     }
 
-    public CreateRequestResponse createRequest(CreateRequestDto newRequest) {
+
+    public void createRequest(CreateRequestDto newRequest) {
         Optional<Category> categoryOpt = categoryRepo.findByName(newRequest.getSummary());
         if (categoryOpt.isPresent()) {
             Category category = categoryOpt.get();
@@ -58,6 +59,5 @@ public class RequestService {
             request.setLat(coordinates.getLat());
             requestRepo.save(request);
         }
-        return null;
     }
 }

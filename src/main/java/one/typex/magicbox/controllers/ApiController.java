@@ -6,6 +6,7 @@ import one.typex.magicbox.dto.CreateRequestResponse;
 import one.typex.magicbox.dto.RequestDto;
 import one.typex.magicbox.services.CategoryService;
 import one.typex.magicbox.services.RequestService;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -39,7 +40,8 @@ public class ApiController {
     }
 
     @PostMapping("createRequest")
-    public CreateRequestResponse createRequest(@RequestBody CreateRequestDto newRequest) {
-        return requestService.createRequest(newRequest);
+    public HttpStatus createRequest(@RequestBody CreateRequestDto newRequest) {
+        requestService.createRequest(newRequest);
+        return HttpStatus.CREATED;
     }
 }
