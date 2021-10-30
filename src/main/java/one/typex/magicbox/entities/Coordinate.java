@@ -9,10 +9,11 @@ import javax.persistence.Id;
 
 @Data
 @Entity
-public class Category {
+public class Coordinate {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String name;
-    private String color;
+    private double lon;
+    private double lat;
 }

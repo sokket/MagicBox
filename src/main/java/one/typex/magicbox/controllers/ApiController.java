@@ -3,8 +3,6 @@ package one.typex.magicbox.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.websocket.server.PathParam;
-
 @Controller
 @RequestMapping("/api/v1/")
 public class ApiController {
